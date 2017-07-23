@@ -1,9 +1,10 @@
-package com.hasee.bh_takeout.ui.activity;
+package com.hasee.bh_takeout.AddressManage.ui;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import com.hasee.bh_takeout.R;
+import com.hasee.bh_takeout.ui.activity.BaseActivity;
 
 /**
  * Created by Administrator on 2017/7/23 0023.

@@ -1,4 +1,4 @@
-package com.hasee.bh_takeout.ui.activity;
+package com.hasee.bh_takeout.AddressManage.ui;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -6,7 +6,9 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.hasee.bh_takeout.AddressManage.adapter.AddressAdapter;
 import com.hasee.bh_takeout.R;
+import com.hasee.bh_takeout.ui.activity.BaseActivity;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -30,5 +32,8 @@ public class ReceiptAddress extends BaseActivity {
         setContentView(R.layout.activity_receipt_address);
         ButterKnife.inject(this);
         super.onCreate(savedInstanceState);
+        AddressAdapter adapter = new AddressAdapter();
+        rvReceiptAddress.setAdapter(adapter);
     }
+
 }
