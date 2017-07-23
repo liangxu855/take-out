@@ -9,7 +9,7 @@ import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.widget.Toast;
 
-import com.itheima.takeout2.R;
+import com.hasee.bh_takeout.R;
 
 
 /**

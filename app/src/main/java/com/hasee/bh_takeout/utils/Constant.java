@@ -1,13 +1,13 @@
 package com.hasee.bh_takeout.utils;
 
-import com.itheima.takeout2.MyApplication;
+
 
 /**
  * Created by Teacher on 2016/9/2.
  */
 public  interface Constant {
 
-    String ip = MyApplication.ip;
+    String ip = "10.0.2.2";
     //192.168.199.215
     //192.168.82.250
      String replace_img_url = ip;
