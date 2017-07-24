@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#EDEDEB"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#EDEDEB"
+              android:orientation="vertical"
     >
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,7 +24,7 @@
                 android:layout_height="25dp"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="18dp"
-                android:src="@mipmap/go_back" />
+                android:src="@mipmap/go_back"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -35,10 +34,10 @@
                 android:layout_toRightOf="@+id/iv_user_back"
                 android:text="登陆"
                 android:textColor="#FFF"
-                android:textSize="18sp" />
+                android:textSize="18sp"/>
 
             <TextView
-                android:id="@+id/iv_user_password_login"
+                android:id="@+id/tv_user_login_type_change"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
@@ -46,7 +45,7 @@
                 android:layout_marginRight="15dp"
                 android:text="密码登陆"
                 android:textColor="#FFF"
-                android:textSize="16sp" />
+                android:textSize="16sp"/>
 
 
         </RelativeLayout>
@@ -55,68 +54,107 @@
     </LinearLayout>
 
     <LinearLayout
+
+        android:id="@+id/ll_login_phone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:orientation="horizontal">
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/et_user_phone"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="18dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:inputType="phone"/>
+
+
+            <TextView
+                android:id="@+id/tv_user_code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15dp"
+                android:background="#3090E6"
+                android:paddingBottom="8dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:paddingTop="8dp"
+                android:text="获取验证码"
+                android:textColor="#FFF"
+                android:textSize="16sp"/>
+
+
+        </LinearLayout>
 
         <EditText
-            android:layout_width="0dp"
+            android:id="@+id/et_user_code"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_weight="1"
-            android:layout_marginRight="5dp"
             android:layout_marginLeft="18dp"
-            android:id="@+id/et_user_phone"
-            android:inputType="phone"/>
+            android:hint="验证码"/>
+    </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/ll_login_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
 
-        <TextView
-            android:id="@+id/tv_user_code"
-            android:background="#3090E6"
-            android:layout_width="wrap_content"
+        <EditText
+            android:id="@+id/et_user_username"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_marginRight="15dp"
-            android:paddingLeft="5dp"
-            android:paddingBottom="8dp"
-            android:paddingTop="8dp"
-            android:paddingRight="5dp"
-            android:text="获取验证码"
-            android:textColor="#FFF"
-            android:textSize="16sp"/>
+            android:layout_marginLeft="18dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="10dp"
+            android:hint="请输入用户名"/>
+
+        <EditText
+            android:id="@+id/et_user_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="18dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="20dp"
+            android:hint="请输入密码"
+            android:inputType="textPassword"/>
 
 
     </LinearLayout>
 
-    <EditText
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:hint="验证码"
-        android:layout_marginLeft="18dp"
-        android:id="@+id/et_user_code" />
-
     <TextView
         android:id="@+id/login"
-        android:layout_marginTop="60dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="60dp"
+        android:background="#4CC05F"
+        android:gravity="center"
         android:paddingBottom="8dp"
         android:paddingTop="8dp"
         android:text="登陆"
-        android:gravity="center"
         android:textColor="#FFF"
         android:textSize="18sp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:background="#4CC05F"
         />
 
     <ImageView
-        android:layout_marginTop="50dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
         android:scaleType="fitXY"
         android:src="@drawable/thridlogin"
         />
