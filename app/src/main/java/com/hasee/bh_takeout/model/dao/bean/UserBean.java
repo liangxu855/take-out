@@ -3,8 +3,10 @@ package com.hasee.bh_takeout.model.dao.bean;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
+import java.io.Serializable;
+
 @DatabaseTable(tableName = "t_user")
-public class UserBean {
+public class UserBean implements Serializable{
     @DatabaseField(id = true)
     public int _id;
 //    @ForeignCollectionField(eager = true)
@@ -81,6 +83,16 @@ public class UserBean {
     }
 
     public void setLogin(boolean login) {
+        this.login = login;
+    }
+
+    public UserBean(int _id, String name, float balance, int discount, int integral, String phone, boolean login) {
+        this._id = _id;
+        this.name = name;
+        this.balance = balance;
+        this.discount = discount;
+        this.integral = integral;
+        this.phone = phone;
         this.login = login;
     }
     //    public ForeignCollection<AddressBean> getAddressList() {

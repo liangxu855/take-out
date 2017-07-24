@@ -2,7 +2,7 @@ package com.hasee.bh_takeout.presenter.fragment;
 
 import com.google.gson.Gson;
 import com.hasee.bh_takeout.bean.ResponseInfo;
-import com.hasee.bh_takeout.bean.User;
+import com.hasee.bh_takeout.model.dao.bean.UserBean;
 import com.hasee.bh_takeout.presenter.BasePresenter;
 import com.hasee.bh_takeout.ui.activity.LoginActivity;
 
@@ -45,7 +45,7 @@ public class LoginPresenter extends BasePresenter {
     protected void parserData(String data) {
         // 解析数据：data
         Gson gson = new Gson();
-        User info = gson.fromJson(data, User.class);
+        UserBean info = gson.fromJson(data, UserBean.class);
         loginActivity.success(info);// 更新界面
     }
 }

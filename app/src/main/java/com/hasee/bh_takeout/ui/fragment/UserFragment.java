@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.hasee.bh_takeout.AddressManage.ui.ReceiptAddressActivity;
 import com.hasee.bh_takeout.R;
 import com.hasee.bh_takeout.bean.User;
+import com.hasee.bh_takeout.model.dao.bean.UserBean;
 import com.hasee.bh_takeout.ui.activity.LoginActivity;
 import com.hasee.bh_takeout.utils.UiUtils;
 
@@ -93,7 +94,7 @@ public class UserFragment extends Fragment {
         switch (requestCode){
             case REQUESTCODE:
                 isLogin = true;
-                User user = (User) data.getSerializableExtra("info");
+                UserBean user = (UserBean) data.getSerializableExtra("info");
                 login.setVisibility(View.GONE);
                 llUserinfo.setVisibility(View.VISIBLE);
                 if (!TextUtils.isEmpty(user.getName())){
