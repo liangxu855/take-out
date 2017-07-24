@@ -7,6 +7,7 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.hasee.bh_takeout.AddressManage.adapter.AddressAdapter;
 import com.hasee.bh_takeout.R;
 import com.hasee.bh_takeout.ui.activity.BaseActivity;
 
@@ -33,7 +34,8 @@ public class ReceiptAddressActivity extends BaseActivity {
         setContentView(R.layout.activity_receipt_address);
         ButterKnife.inject(this);
         super.onCreate(savedInstanceState);
-
+        AddressAdapter adapter = new AddressAdapter();
+        rvReceiptAddress.setAdapter(adapter);
     }
 
 }
