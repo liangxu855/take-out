@@ -1,6 +1,8 @@
 package com.hasee.bh_takeout.bean;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
 	
 	private int id;
 	private String name;
@@ -56,7 +58,16 @@ public class User {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	
-	
 
+	@Override
+	public String toString() {
+		return "User{" +
+				"id=" + id +
+				", name='" + name + '\'' +
+				", balance=" + balance +
+				", discount=" + discount +
+				", integral=" + integral +
+				", phone='" + phone + '\'' +
+				'}';
+	}
 }
