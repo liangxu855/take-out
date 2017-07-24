@@ -50,5 +50,5 @@ dependencies {
     compile 'com.android.support:design:25.3.1'
     // 分组显示数据的三方控件
     compile 'se.emilsjolander:stickylistheaders:2.7.0'
-    compile project(path: ':xrecyclerview')
+    //compile project(path: ':xrecyclerview')
 }
