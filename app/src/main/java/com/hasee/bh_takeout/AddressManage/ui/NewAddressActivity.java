@@ -84,9 +84,9 @@ public class NewAddressActivity extends BaseActivity {
             if(TextUtils.isEmpty(phoneNumber)){
                 Toast.makeText(NewAddressActivity.this, "请输入手机号", Toast.LENGTH_SHORT).show();
             }
-            if(TextUtils.isEmpty(receiptAddress)||TextUtils.isEmpty(detailAddress)){
-                Toast.makeText(NewAddressActivity.this, "请输入地址", Toast.LENGTH_SHORT).show();
-            }
+//            if(TextUtils.isEmpty(receiptAddress)||TextUtils.isEmpty(detailAddress)){
+//                Toast.makeText(NewAddressActivity.this, "请输入地址", Toast.LENGTH_SHORT).show();
+//            }
             AddressBean addressBean = new AddressBean(name,null,phoneNumber,receiptAddress,detailAddress,null,0,0);
             //AddressDao addressDao = new AddressDao(MyApplication.getContext());
             //addressDao.addAddress(addressBean);
