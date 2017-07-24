@@ -4,11 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.view.menu.SubMenuBuilder;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.hasee.bh_takeout.R;
 import com.hasee.bh_takeout.ui.adapter.OrderFragmentAdapter;
@@ -28,6 +30,7 @@ public class OrderFragment extends Fragment {
     @InjectView(R.id.xrecyclerview)
     com.jcodecraeer.xrecyclerview.XRecyclerView mXRecyclerview;
     private boolean isPullRefresh;
+    private OrderFragmentAdapter orderFragmentAdapter;
 
     @Nullable
     @Override
@@ -73,25 +76,25 @@ public class OrderFragment extends Fragment {
         //设置初始化状态为刷新状态。作用： 界面初始加载时，刷新数据。
         mXRecyclerview.refresh();
         //设置适配器
-        OrderFragmentAdapter orderFragmentAdapter = new OrderFragmentAdapter(getActivity());
+        orderFragmentAdapter = new OrderFragmentAdapter(getActivity());
         mXRecyclerview.setAdapter(orderFragmentAdapter);
         //设施条目的适配器
         //创建并设置Adapter
-//        OrderFragmentAdapter.setOnItemClickListener(new OrderFragmentAdapter.OnRecyclerViewItemClickListener() {
-//
-//
-//            @Override
-//            public void onItemClick(View view) {
-//
-////                Toast.makeText(getContext(), "你点击了" + news.getBody() + "条目", Toast.LENGTH_SHORT).show();
-//                Intent intent = new Intent();
-//                intent.setClass(getActivity().getApplicationContext(), OrderFragmentItemActivity.class);
-//                startActivityForResult(intent, REQUESTCODE);
-//            }
-//        });
+        orderFragmentAdapter.setOnItemClickListener(new OrderFragmentAdapter.OnRecyclerViewItemClickListener() {
+            @Override
+            public void onItemClick(View view) {
+                Toast.makeText(getContext(), "你点击了条目", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void sendRequest() {
+        if (isPullRefresh){
+            mXRecyclerview.refreshComplete();
+            isPullRefresh = !isPullRefresh;
+        }else{
+            mXRecyclerview.loadMoreComplete();
+        }
     }
 
     @Override
