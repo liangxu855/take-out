@@ -14,6 +14,8 @@ import android.widget.Toast;
 
 import com.hasee.bh_takeout.R;
 import com.hasee.bh_takeout.bean.User;
+import com.hasee.bh_takeout.model.dao.bean.UserBean;
+import com.hasee.bh_takeout.model.dao.bean.UserDao;
 import com.hasee.bh_takeout.presenter.api.ResponseInfoAPI;
 import com.hasee.bh_takeout.presenter.fragment.LoginPresenter;
 import com.hasee.bh_takeout.ui.fragment.UserFragment;
@@ -61,13 +63,14 @@ public class LoginActivity extends BaseActivity {
     public int loginType = LOGINUSEPHONE;
 
     LoginPresenter loginPresenter;
-
+    UserDao userDao;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ButterKnife.inject(this);
         loginPresenter = new LoginPresenter(this);
+        userDao = new UserDao(this);
     }
 
     @OnClick({R.id.iv_user_back, R.id.tv_user_login_type_change, R.id.tv_user_code, R.id.login})
@@ -121,10 +124,12 @@ public class LoginActivity extends BaseActivity {
         Toast.makeText(this, "登陆失败", Toast.LENGTH_SHORT).show();
     }
 
-    public void success(User info) {
+    public void success(UserBean info) {
         Toast.makeText(this, info.toString(), Toast.LENGTH_SHORT).show();
+        info.login = true;
+        userDao.addUserBean(info);
         Intent mIntent = new Intent();
-        mIntent.putExtra("info",info);
+        mIntent.putExtra("info", info);
         // 设置结果，并进行传送
         this.setResult(UserFragment.REQUESTCODE, mIntent);
         this.finish();
