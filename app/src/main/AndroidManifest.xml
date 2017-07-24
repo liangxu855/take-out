@@ -21,6 +21,7 @@
         <activity android:name=".AddressManage.ui.EditAddressActivity"/>
         <activity android:name=".AddressManage.ui.ReceiptAddressActivity"/>
         <activity android:name=".AddressManage.ui.SelectLocationActivity"/>
+        <activity android:name=".AddressManage.ui.NewAddressActivity"/>
     </application>
 
 </manifest>
