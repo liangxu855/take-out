@@ -12,8 +12,6 @@ import com.j256.ormlite.table.TableUtils;
 
 import java.sql.SQLException;
 
-import static android.R.attr.data;
-
 /**
  * Created by Teacher on 2016/9/2.
  */
@@ -41,6 +39,7 @@ public class DBHelper extends OrmLiteSqliteOpenHelper {
                 if (instance == null) {// 第二次校验：防止对象的多次创建
                     instance = new DBHelper(MyApplication.getContext());
                     instance.getWritableDatabase();
+
                 }
             }
         }
