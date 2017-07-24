@@ -1,13 +1,16 @@
 package com.hasee.bh_takeout.AddressManage.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.hasee.bh_takeout.AddressManage.adapter.AddressAdapter;
+import com.hasee.bh_takeout.MyApplication;
 import com.hasee.bh_takeout.R;
 import com.hasee.bh_takeout.ui.activity.BaseActivity;
 
@@ -36,6 +39,15 @@ public class ReceiptAddressActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         AddressAdapter adapter = new AddressAdapter();
         rvReceiptAddress.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+
+        llAddAddress.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MyApplication.getContext(),NewAddressActivity.class);
+                startActivityForResult(intent,49);
+            }
+        });
     }
 
 }
