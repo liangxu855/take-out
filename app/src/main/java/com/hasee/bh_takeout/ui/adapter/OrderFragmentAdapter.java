@@ -40,8 +40,8 @@ public class OrderFragmentAdapter extends RecyclerView.Adapter<RecyclerView.View
 /*绑定数据*/
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        orderViewHolder = (OrderViewHolder) holder;
-        ((OrderViewHolder) holder).rl.setOnClickListener(this);
+        //将position保存在itemView的Tag中，以便点击时进行获取
+        holder.itemView.setTag(position);
     }
 
     @Override
@@ -51,7 +51,10 @@ public class OrderFragmentAdapter extends RecyclerView.Adapter<RecyclerView.View
 
     @Override
     public void onClick(View view) {
-
+        if (mOnItemClickListener != null){
+            //注意,这里使用getTag 的方法获取数据
+            mOnItemClickListener.onItemClick(view, (int) view.getTag());
+        }
     }
 
     class OrderViewHolder extends RecyclerView.ViewHolder{
@@ -63,7 +66,7 @@ public class OrderFragmentAdapter extends RecyclerView.Adapter<RecyclerView.View
     }
     //设置条目点击事件,在OrderFragment里面使用回调来使用
     public interface OnRecyclerViewItemClickListener{
-        void onItemClick(View view);
+        void onItemClick(View view,int position);
     }
     private OnRecyclerViewItemClickListener mOnItemClickListener = null;
     public void setOnItemClickListener(OnRecyclerViewItemClickListener listener) {
