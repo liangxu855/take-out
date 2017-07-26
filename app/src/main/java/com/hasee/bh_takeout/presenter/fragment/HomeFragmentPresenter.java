@@ -1,10 +1,14 @@
 package com.hasee.bh_takeout.presenter.fragment;
 
 import com.google.gson.Gson;
+import com.hasee.bh_takeout.bean.Head;
 import com.hasee.bh_takeout.bean.HomeInfo;
+import com.hasee.bh_takeout.bean.Promotion;
 import com.hasee.bh_takeout.bean.ResponseInfo;
 import com.hasee.bh_takeout.presenter.BasePresenter;
 import com.hasee.bh_takeout.ui.fragment.HomeFragment;
+
+import java.util.ArrayList;
 
 import retrofit2.Call;
 
@@ -49,11 +53,12 @@ public class HomeFragmentPresenter extends BasePresenter {
      * 解析服务器返回数据
      * @param data
      */
-    protected void parserData(String data) {
+    public  void parserData(String data) {
         // 解析数据：data
         Gson gson=new Gson();
         HomeInfo info = gson.fromJson(data, HomeInfo.class);
-        fragment.success(info);// 更新界面
+      //  fragment.success(info);// 更新界面
+        fragment.getMAdapter().setData(info);
 
     }
 }

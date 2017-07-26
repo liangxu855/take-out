@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
+import com.hasee.bh_takeout.AddressManage.adapter.MyAdapter;
 import com.hasee.bh_takeout.R;
 import com.hasee.bh_takeout.bean.HomeInfo;
 import com.hasee.bh_takeout.dagger.conponent.fragment.DaggerHomeFragmentConponent;
@@ -51,7 +52,7 @@ public class HomeFragment extends BaseFragment {
 
     @Inject
     HomeFragmentPresenter presenter;
-
+    private MyAdapter mMAdapter;
 
 
     @Override
@@ -75,9 +76,12 @@ public class HomeFragment extends BaseFragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
         rvHome.setLayoutManager(new LinearLayoutManager(this.getContext(), LinearLayoutManager.VERTICAL, false));
         rvHome.addOnScrollListener(listener);
-
+        //给RecyclerView添加适配器
+        mMAdapter = new MyAdapter(getActivity());
+        rvHome.setAdapter(mMAdapter);
     }
 
 
@@ -126,6 +130,7 @@ public class HomeFragment extends BaseFragment {
     }
 
     public void failed(String msg) {
+
     }
 
     public void success(HomeInfo info) {
@@ -138,7 +143,8 @@ public class HomeFragment extends BaseFragment {
     public void onClick() {
 
     }
-
-
+    public MyAdapter getMAdapter(){
+        return  mMAdapter;
+    }
 
 }
