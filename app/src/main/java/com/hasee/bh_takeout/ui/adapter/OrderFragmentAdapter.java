@@ -35,13 +35,13 @@ public class OrderFragmentAdapter extends RecyclerView.Adapter<RecyclerView.View
         orderViewHolder = new OrderViewHolder(view);
         //将创建的view进行点击事件
         view.setOnClickListener(this);
-        return new OrderViewHolder(view);
+        return orderViewHolder;
     }
 /*绑定数据*/
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         orderViewHolder = (OrderViewHolder) holder;
-//        ((OrderViewHolder) holder).rl.setOnClickListener(this);
+        ((OrderViewHolder) holder).rl.setOnClickListener(this);
     }
 
     @Override
