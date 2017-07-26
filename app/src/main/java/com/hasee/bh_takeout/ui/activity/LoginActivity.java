@@ -20,6 +20,8 @@ import com.hasee.bh_takeout.presenter.api.ResponseInfoAPI;
 import com.hasee.bh_takeout.presenter.fragment.LoginPresenter;
 import com.hasee.bh_takeout.ui.fragment.UserFragment;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import butterknife.ButterKnife;
@@ -64,6 +66,8 @@ public class LoginActivity extends BaseActivity {
 
     LoginPresenter loginPresenter;
     UserDao userDao;
+    UserBean userBean;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -125,8 +129,17 @@ public class LoginActivity extends BaseActivity {
     }
 
     public void success(UserBean info) {
+        this.userBean = info;
+
         Toast.makeText(this, info.toString(), Toast.LENGTH_SHORT).show();
         info.login = true;
+        List<UserBean> userBeanList = userDao.findAll();
+        for (UserBean user : userBeanList) {
+            if (TextUtils.equals(user.getName(), info.getName())) {
+                userDao.update(info);
+                break;
+            }
+        }
         userDao.addUserBean(info);
         Intent mIntent = new Intent();
         mIntent.putExtra("info", info);
@@ -148,5 +161,12 @@ public class LoginActivity extends BaseActivity {
             llLoginPhone.setVisibility(View.VISIBLE);
             llLoginPassword.setVisibility(View.GONE);
         }
+    }
+
+    public UserBean getUserBean() {
+        if (userBean != null) {
+            return userBean;
+        }
+        return null;
     }
 }
