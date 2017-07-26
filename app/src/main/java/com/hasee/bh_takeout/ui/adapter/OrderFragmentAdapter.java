@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.hasee.bh_takeout.R;
@@ -34,13 +35,13 @@ public class OrderFragmentAdapter extends RecyclerView.Adapter<RecyclerView.View
         orderViewHolder = new OrderViewHolder(view);
         //将创建的view进行点击事件
         view.setOnClickListener(this);
-        return orderViewHolder;
+        return new OrderViewHolder(view);
     }
 /*绑定数据*/
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         orderViewHolder = (OrderViewHolder) holder;
-
+//        ((OrderViewHolder) holder).rl.setOnClickListener(this);
     }
 
     @Override
@@ -54,9 +55,10 @@ public class OrderFragmentAdapter extends RecyclerView.Adapter<RecyclerView.View
     }
 
     class OrderViewHolder extends RecyclerView.ViewHolder{
-        TextView tv_content;
+        RelativeLayout rl;
         public OrderViewHolder(View itemView) {
             super(itemView);
+            rl = (RelativeLayout) itemView.findViewById(R.id.rl);
         }
     }
     //设置条目点击事件,在OrderFragment里面使用回调来使用
