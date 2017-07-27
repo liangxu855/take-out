@@ -99,7 +99,7 @@ public class LoginActivity extends BaseActivity {
         if (loginType == LOGINUSEPASSWORD) {
             String username = etUserUsername.getText().toString().trim();
             String password = etUserPassword.getText().toString();
-            if (TextUtils.isEmpty(username) && TextUtils.isEmpty(password)) {
+            if (TextUtils.isEmpty(username) || TextUtils.isEmpty(password)) {
                 Toast.makeText(this, "账号或密码不能为空", Toast.LENGTH_SHORT).show();
                 return;
             } else {
@@ -109,7 +109,7 @@ public class LoginActivity extends BaseActivity {
         } else if (loginType == LOGINUSEPHONE) {
             String phone = etUserPhone.getText().toString().trim();
             String code = etUserCode.getText().toString().trim();
-            if (TextUtils.isEmpty(phone) && TextUtils.isEmpty(code)) {
+            if (TextUtils.isEmpty(phone) || TextUtils.isEmpty(code)) {
                 Toast.makeText(this, "手机号或验证码不能为空", Toast.LENGTH_SHORT).show();
                 return;
             } else {
