@@ -22,10 +22,14 @@
                 android:gravity="center">
 
                 <ImageButton
+                    android:id="@+id/ib_goback"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@color/colorPrimaryDark"
-                    android:src="@mipmap/go_back" />
+                    android:src="@mipmap/go_back"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
 
                 <TextView
                     android:id="@+id/tv_toolbar_title"
@@ -40,7 +44,7 @@
                     android:textSize="20sp" />
 
                 <ImageButton
-                    android:id="@+id/tv_search"
+                    android:id="@+id/ib_iphone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"

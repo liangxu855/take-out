@@ -86,7 +86,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="15dp"
-                    android:layout_toLeftOf="@id/iv_jiantou"
+                    android:layout_toLeftOf="@+id/iv_jiantou"
                     android:text="在线支付"
                     android:textSize="15sp" />
 
@@ -117,7 +117,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="15dp"
-                    android:layout_toLeftOf="@id/iv_jiantou2"
+                    android:layout_toLeftOf="@+id/iv_jiantou2"
                     android:text="在线支付"
                     android:textSize="15sp" />
 
@@ -150,7 +150,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="15dp"
-                    android:layout_toLeftOf="@id/iv_jiantou1"
+                    android:layout_toLeftOf="@+id/iv_jiantou1"
                     android:text="在线支付"
                     android:textSize="15sp" />
 

@@ -9,8 +9,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.hasee.bh_takeout.R;
 
@@ -20,7 +22,7 @@ import com.hasee.bh_takeout.R;
  */
 
 public class OrderFragmentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements View.OnClickListener {
-   private Activity activity;
+    private Activity activity;
     private OrderViewHolder orderViewHolder;
 
 
@@ -33,8 +35,14 @@ public class OrderFragmentAdapter extends RecyclerView.Adapter<RecyclerView.View
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(activity).inflate(R.layout.item_xr,parent,false);
         orderViewHolder = new OrderViewHolder(view);
-        //将创建的view进行点击事件
+//        将创建的view进行点击事件
         view.setOnClickListener(this);
+        orderViewHolder.again.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(activity,"点击打开商家的界面",Toast.LENGTH_SHORT).show();
+            }
+        });
         return orderViewHolder;
     }
 /*绑定数据*/
@@ -59,9 +67,11 @@ public class OrderFragmentAdapter extends RecyclerView.Adapter<RecyclerView.View
 
     class OrderViewHolder extends RecyclerView.ViewHolder{
         RelativeLayout rl;
+        Button again;
         public OrderViewHolder(View itemView) {
             super(itemView);
             rl = (RelativeLayout) itemView.findViewById(R.id.rl);
+            again = (Button) itemView.findViewById(R.id.again);
         }
     }
     //设置条目点击事件,在OrderFragment里面使用回调来使用
