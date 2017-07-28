@@ -3,11 +3,13 @@ package com.hasee.bh_takeout;
 import android.app.Application;
 import android.content.Context;
 
+import com.mob.MobApplication;
+
 /**
  * Created by itheima.
  */
 
-public class MyApplication extends Application {
+public class MyApplication extends MobApplication {
     private static Context context;
 
     public static Context getContext() {

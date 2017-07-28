@@ -7,7 +7,7 @@ package com.hasee.bh_takeout.utils;
  */
 public  interface Constant {
 
-    String ip = "10.0.2.2";
+    String ip = "192.168.125.38";
     //192.168.199.215
     //192.168.82.250
      String replace_img_url = ip;

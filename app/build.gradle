@@ -20,6 +20,11 @@ android {
     }
 }
 
+repositories{
+    flatDir{
+        dirs 'libs' //就是你放aar的目录地址
+    }
+}
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
@@ -51,4 +56,8 @@ dependencies {
     // 分组显示数据的三方控件
     compile 'se.emilsjolander:stickylistheaders:2.7.0'
     compile project(path: ':xrecyclerview')
+    //短信验证
+    compile name:'SMSSDK-3.0.0',ext:'aar'
+    compile name:'SMSSDKGUI-3.0.0',ext:'aar'
+
 }
