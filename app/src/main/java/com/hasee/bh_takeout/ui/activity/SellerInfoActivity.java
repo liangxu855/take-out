@@ -7,4 +7,5 @@ import android.app.Application;
  */
 
 public class SellerInfoActivity  extends Application{
+
 }
