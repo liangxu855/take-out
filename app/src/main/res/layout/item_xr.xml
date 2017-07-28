@@ -48,6 +48,7 @@
                 android:text="时间日期++++++++++++++++"/>
         </RelativeLayout>
         <RelativeLayout
+            android:id="@+id/rl_neirong"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 

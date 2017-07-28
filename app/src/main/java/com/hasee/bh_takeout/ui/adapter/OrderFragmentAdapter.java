@@ -43,6 +43,12 @@ public class OrderFragmentAdapter extends RecyclerView.Adapter<RecyclerView.View
                 Toast.makeText(activity,"点击打开商家的界面",Toast.LENGTH_SHORT).show();
             }
         });
+        orderViewHolder.neirong.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
         return orderViewHolder;
     }
 /*绑定数据*/
@@ -68,10 +74,12 @@ public class OrderFragmentAdapter extends RecyclerView.Adapter<RecyclerView.View
     class OrderViewHolder extends RecyclerView.ViewHolder{
         RelativeLayout rl;
         Button again;
+        RelativeLayout neirong;
         public OrderViewHolder(View itemView) {
             super(itemView);
             rl = (RelativeLayout) itemView.findViewById(R.id.rl);
             again = (Button) itemView.findViewById(R.id.again);
+            neirong = (RelativeLayout) itemView.findViewById(R.id.rl_neirong);
         }
     }
     //设置条目点击事件,在OrderFragment里面使用回调来使用
