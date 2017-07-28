@@ -6,6 +6,7 @@ import com.hasee.bh_takeout.model.dao.bean.AddressBean;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.stmt.DeleteBuilder;
 
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -53,12 +54,26 @@ public class AddressDao{
      */
     public List<AddressBean> findAll() {
         try {
+
             return addressDao.queryForAll();
         } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
     }
+
+    /**
+     * @des 找到指定UserId的条目
+     */
+    public List<AddressBean> findAddress(int id){
+        try{
+            return addressDao.queryForEq("user_id",id);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 
     /**
      * 根据对象删除某条数据
