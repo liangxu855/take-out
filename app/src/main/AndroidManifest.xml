@@ -40,7 +40,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.activity.LoginActivity"/>
-        <activity android:name=".ui.activity.OrderItemActivity"/>
         <activity android:name=".AddressManage.ui.EditAddressActivity"/>
         <activity android:name=".AddressManage.ui.ReceiptAddressActivity"/>
         <activity android:name=".AddressManage.ui.SelectLocationActivity"/>
