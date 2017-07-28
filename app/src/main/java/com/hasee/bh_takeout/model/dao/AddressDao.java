@@ -13,7 +13,7 @@ import java.util.List;
  * 针对地址数据库 编写的dao
  */
 
-public class AddressDao {
+public class AddressDao{
     private Dao<AddressBean, Integer> addressDao;
 
     public AddressDao(Context mContext) {
@@ -33,6 +33,7 @@ public class AddressDao {
     public int addAddress(AddressBean address) {
         int id = 0;
         try {
+
             id = addressDao.create(address);
         } catch (Exception e) {
             e.printStackTrace();
@@ -62,10 +63,10 @@ public class AddressDao {
     /**
      * 根据对象删除某条数据
      */
-    public void delete(AddressBean address) {
+    public void delete(int id) {
         DeleteBuilder deleteBuilder = addressDao.deleteBuilder();
         try {
-            deleteBuilder.where().eq("_id",address._id);
+            deleteBuilder.where().eq("_id",id);
             deleteBuilder.delete();
         } catch (Exception e) {
             e.printStackTrace();
@@ -77,7 +78,7 @@ public class AddressDao {
      */
     public void removeAll(List<AddressBean> addresses){
         for (AddressBean address : addresses) {
-            delete(address);
+            delete(address._id);
         }
     }
 

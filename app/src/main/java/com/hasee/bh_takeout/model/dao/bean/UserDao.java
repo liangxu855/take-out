@@ -4,12 +4,10 @@ import android.content.Context;
 import android.widget.Toast;
 
 import com.hasee.bh_takeout.MyApplication;
-import com.hasee.bh_takeout.bean.User;
 import com.hasee.bh_takeout.model.dao.DBHelper;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.stmt.DeleteBuilder;
 
-import java.sql.SQLException;
 import java.util.List;
 
 /**

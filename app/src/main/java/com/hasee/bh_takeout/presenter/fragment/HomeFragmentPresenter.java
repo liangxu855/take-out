@@ -1,14 +1,10 @@
 package com.hasee.bh_takeout.presenter.fragment;
 
 import com.google.gson.Gson;
-import com.hasee.bh_takeout.bean.Head;
 import com.hasee.bh_takeout.bean.HomeInfo;
-import com.hasee.bh_takeout.bean.Promotion;
 import com.hasee.bh_takeout.bean.ResponseInfo;
 import com.hasee.bh_takeout.presenter.BasePresenter;
 import com.hasee.bh_takeout.ui.fragment.HomeFragment;
-
-import java.util.ArrayList;
 
 import retrofit2.Call;
 
