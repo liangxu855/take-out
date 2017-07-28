@@ -1,5 +1,6 @@
 package com.hasee.bh_takeout.ui.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -10,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.hasee.bh_takeout.R;
+import com.hasee.bh_takeout.ui.activity.OrderItemActivity;
 import com.hasee.bh_takeout.ui.adapter.OrderFragmentAdapter;
 import com.jcodecraeer.xrecyclerview.ProgressStyle;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
@@ -22,7 +24,6 @@ import butterknife.InjectView;
  * Created by ywf on 2017/3/24.
  */
 public class OrderFragment extends Fragment {
-
 
     @InjectView(R.id.xrecyclerview)
     com.jcodecraeer.xrecyclerview.XRecyclerView mXRecyclerview;
@@ -78,9 +79,14 @@ public class OrderFragment extends Fragment {
         //设施条目的适配器
         //创建并设置Adapter
         orderFragmentAdapter.setOnItemClickListener(new OrderFragmentAdapter.OnRecyclerViewItemClickListener() {
+
             @Override
-            public void onItemClick(View view) {
-                Toast.makeText(getContext(), "你点击了条目", Toast.LENGTH_SHORT).show();
+            public void onItemClick(View view, int position) {
+//                Toast.makeText(getContext(), "你点击了"+position+"条目", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent();
+                intent.setClass(getActivity().getApplicationContext(), OrderItemActivity.class);
+                startActivity(intent);
+
             }
         });
     }

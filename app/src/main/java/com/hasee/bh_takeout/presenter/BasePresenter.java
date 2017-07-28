@@ -21,7 +21,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public abstract class BasePresenter {
     protected static ResponseInfoAPI responseInfoAPI;
     // 数据库
-    // 网络
+    // 网络.
     protected DBHelper helper;
 
 
