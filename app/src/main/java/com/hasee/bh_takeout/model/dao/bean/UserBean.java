@@ -7,7 +7,7 @@ import java.io.Serializable;
 
 @DatabaseTable(tableName = "t_user")
 public class UserBean implements Serializable{
-    @DatabaseField(id = true)
+    @DatabaseField(generatedId = true)
     public int _id;
 //    @ForeignCollectionField(eager = true)
 //    private ForeignCollection<AddressBean> addressList;
@@ -86,8 +86,8 @@ public class UserBean implements Serializable{
         this.login = login;
     }
 
-    public UserBean(int _id, String name, float balance, int discount, int integral, String phone, boolean login) {
-        this._id = _id;
+    public UserBean( String name, float balance, int discount, int integral, String phone, boolean login) {
+        //this._id = _id;
         this.name = name;
         this.balance = balance;
         this.discount = discount;

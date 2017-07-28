@@ -2,7 +2,6 @@ package com.hasee.bh_takeout.AddressManage.adapter;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,13 +9,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.hasee.bh_takeout.AddressManage.ui.EditAddressActivity;
-import com.hasee.bh_takeout.MyApplication;
+import com.hasee.bh_takeout.AddressManage.ui.NewAddressActivity;
 import com.hasee.bh_takeout.R;
-import com.hasee.bh_takeout.model.dao.AddressDao;
 import com.hasee.bh_takeout.model.dao.bean.AddressBean;
 
-import java.io.Serializable;
 import java.util.List;
 
 import butterknife.ButterKnife;
@@ -29,40 +25,67 @@ import butterknife.InjectView;
 public class AddressAdapter extends RecyclerView.Adapter {
 
     private List<AddressBean> allAddressInfo;
+    private Activity activity;
+    public AddressAdapter(Activity activity,List<AddressBean> bean) {
+        this.activity = activity;
+        this.allAddressInfo = bean;
+    }
+
+
+
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        final Activity activity = (Activity) MyApplication.getContext();
-        AddressDao addressDao = new AddressDao(activity);
-        allAddressInfo = addressDao.findAll();
+
         // View view = View.inflate(MyApplication.getContext(), R.layout.item_receipt_address, parent);
-        View view = LayoutInflater.from(MyApplication.getContext()).inflate(R.layout.item_receipt_address, parent, false);
-        final AddressViewHolder holder = new AddressViewHolder(view);
-        holder.ivEdit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int position = holder.getAdapterPosition();
-                Intent intent = new Intent(activity,EditAddressActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("AddressInfo", (Serializable) allAddressInfo.get(position));
-                intent.putExtras(bundle);
-                activity.startActivityForResult(intent,50);
-            }
-        });
-        return holder;
+        View view = LayoutInflater.from(activity).inflate(R.layout.item_receipt_address, parent, false);
+
+//        AddressDao addressDao = new AddressDao(activity);
+//        allAddressInfo = addressDao.findAll();
+
+
+        return new AddressViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        AddressBean addressBean = allAddressInfo.get(position);
-        String phoneNumber = addressBean.phone;
-        String name = addressBean.name;
-        String sex = addressBean.sex;
-        String label = addressBean.label;
-        String detailAddress = addressBean.detailAddress;//详细地址
-        String receiptAddress = addressBean.receiptAddress;
+    public void onBindViewHolder(final RecyclerView.ViewHolder holder, int position) {
+        final AddressViewHolder addressViewHolder = (AddressViewHolder) holder;
+        AddressBean addressBean = null;
+        String phoneNumber = null;
+        String name = null;
+        String sex= null;
+        String label = null;
+        String detailAddress= null;
+        String receiptAddress= null;
+        if(allAddressInfo.size() != 0){
+        addressBean = allAddressInfo.get(position);
+        phoneNumber = addressBean.phone;
+        name = addressBean.name;
+        sex = addressBean.sex;
+        label = addressBean.label;
+        detailAddress = addressBean.detailAddress;//详细地址
+        receiptAddress = addressBean.receiptAddress;
+        addressViewHolder.ivEdit.setVisibility(View.VISIBLE);
+        }else{
+            name  = "收货人";
+            phoneNumber = "无";
+            sex = "无";
+            detailAddress = "无";
+            receiptAddress = "无";
+            label = "无";
+            addressViewHolder.ivEdit.setVisibility(View.GONE);
+        }
 
-        AddressViewHolder addressViewHolder = (AddressViewHolder) holder;
+        addressViewHolder.ivEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int position = addressViewHolder.getAdapterPosition();
+                Intent intent = new Intent(activity,NewAddressActivity.class);
+                intent.putExtra("type",1);
+                intent.putExtra("id",allAddressInfo.get(position)._id);
+                activity.startActivityForResult(intent,50);
+            }
+        });
         addressViewHolder.tvLabel.setText(label);
         addressViewHolder.tvPhone.setText(phoneNumber);
         addressViewHolder.tvName.setText(name);
@@ -72,7 +95,11 @@ public class AddressAdapter extends RecyclerView.Adapter {
 
     @Override
     public int getItemCount() {
+        if(allAddressInfo.size()==0){
+            return 1;
+        }
         return allAddressInfo.size();
+
     }
 
 
@@ -90,7 +117,7 @@ public class AddressAdapter extends RecyclerView.Adapter {
         @InjectView(R.id.iv_edit)
         ImageView ivEdit;
 
-        AddressViewHolder(View view) {
+        public AddressViewHolder(View view) {
             super(view);
             ButterKnife.inject(this, view);
         }

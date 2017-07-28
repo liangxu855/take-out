@@ -1,6 +1,5 @@
 package com.hasee.bh_takeout.utils;
 
-import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.app.ProgressDialog;
 import android.content.Context;
