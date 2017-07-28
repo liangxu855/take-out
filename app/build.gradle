@@ -51,4 +51,8 @@ dependencies {
     // 分组显示数据的三方控件
     compile 'se.emilsjolander:stickylistheaders:2.7.0'
     compile project(path: ':xrecyclerview')
+   compile files('libs/AMap2DMap_5.2.0_AMapLocation_3.4.1_20170629.jar')
+    /* //地图的依赖
+    compile 'com.amap.api:location:latest.integration'
+    compile 'com.amap.api:map2d:latest.integration'*/
 }

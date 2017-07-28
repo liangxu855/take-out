@@ -17,7 +17,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_division_title">
 
-        <TableRow>
+        <TableRow
+            android:id="@+id/tr_top">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -65,7 +66,8 @@
                 android:textSize="16sp" />
         </TableRow>
 
-        <TableRow>
+        <TableRow
+            android:id="@+id/tr_bottom">
 
             <TextView
                 android:layout_width="wrap_content"

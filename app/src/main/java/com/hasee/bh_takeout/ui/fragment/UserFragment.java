@@ -47,6 +47,7 @@ public class UserFragment extends Fragment {
     public static final int REQUESTCODE = 1;
 
     public boolean isLogin = false;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -76,32 +77,34 @@ public class UserFragment extends Fragment {
     }
 
     private void toLogin() {
-        Intent intent = new Intent(getContext(),LoginActivity.class);
-        startActivityForResult(intent,REQUESTCODE);
+        Intent intent = new Intent(getContext(), LoginActivity.class);
+        startActivityForResult(intent, REQUESTCODE);
     }
 
     private void toAddress() {
-        if (isLogin){
-            Intent intent = new Intent(getContext(),ReceiptAddressActivity.class);
+        if (isLogin) {
+            Intent intent = new Intent(getContext(), ReceiptAddressActivity.class);
             startActivity(intent);
-        }else{
+        } else {
             toLogin();
         }
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        switch (requestCode){
+        switch (requestCode) {
             case REQUESTCODE:
-                isLogin = true;
-                UserBean user = (UserBean) data.getSerializableExtra("info");
-                login.setVisibility(View.GONE);
-                llUserinfo.setVisibility(View.VISIBLE);
-                if (!TextUtils.isEmpty(user.getName())){
-                    username.setText(user.getName());
-                }
-                if (!TextUtils.isEmpty(user.getPhone())){
-                    phone.setText(user.getPhone());
+                if (data != null) {
+                    isLogin = true;
+                    UserBean user = (UserBean) data.getSerializableExtra("info");
+                    login.setVisibility(View.GONE);
+                    llUserinfo.setVisibility(View.VISIBLE);
+                    if (!TextUtils.isEmpty(user.getName())) {
+                        username.setText(user.getName());
+                    }
+                    if (!TextUtils.isEmpty(user.getPhone())) {
+                        phone.setText(user.getPhone());
+                    }
                 }
                 break;
         }

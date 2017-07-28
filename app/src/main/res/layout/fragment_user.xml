@@ -3,7 +3,49 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#3090E6"
+        android:orientation="vertical">
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:text="我的"
+                android:textColor="#FFF"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/tv_user_setting"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+
+                android:layout_marginRight="15dp"
+                android:src="@mipmap/user_center_setting" />
+
+            <ImageView
+                android:id="@+id/iv_user_notice"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginRight="40dp"
+                android:layout_toLeftOf="@+id/tv_user_setting"
+                android:src="@mipmap/user_center_notice" />
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
