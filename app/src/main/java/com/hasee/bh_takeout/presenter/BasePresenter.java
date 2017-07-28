@@ -2,7 +2,6 @@ package com.hasee.bh_takeout.presenter;
 
 import android.util.Log;
 
-
 import com.hasee.bh_takeout.bean.ResponseInfo;
 import com.hasee.bh_takeout.model.dao.DBHelper;
 import com.hasee.bh_takeout.presenter.api.ResponseInfoAPI;
@@ -22,7 +21,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public abstract class BasePresenter {
     protected static ResponseInfoAPI responseInfoAPI;
     // 数据库
-    // 网络
+    // 网络.
     protected DBHelper helper;
 
 

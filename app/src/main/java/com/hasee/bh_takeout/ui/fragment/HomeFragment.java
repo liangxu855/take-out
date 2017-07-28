@@ -1,7 +1,6 @@
 package com.hasee.bh_takeout.ui.fragment;
 
 import android.animation.ArgbEvaluator;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,19 +11,13 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-
-import com.amap.api.location.AMapLocation;
-import com.amap.api.location.AMapLocationClient;
-import com.amap.api.location.AMapLocationListener;
 import com.hasee.bh_takeout.AddressManage.adapter.MyAdapter;
-import com.hasee.bh_takeout.MyApplication;
 import com.hasee.bh_takeout.R;
 import com.hasee.bh_takeout.bean.HomeInfo;
 import com.hasee.bh_takeout.dagger.conponent.fragment.DaggerHomeFragmentConponent;
 import com.hasee.bh_takeout.dagger.conponent.fragment.HomeFragmentConponent;
 import com.hasee.bh_takeout.dagger.module.fragment.HomeFragmentModule;
 import com.hasee.bh_takeout.presenter.fragment.HomeFragmentPresenter;
-import com.hasee.bh_takeout.ui.activity.MapActivity;
 
 import javax.inject.Inject;
 
@@ -60,19 +53,6 @@ public class HomeFragment extends BaseFragment {
     HomeFragmentPresenter presenter;
     private MyAdapter mMAdapter;
 
-    /*
-    * ------------------------------------------------------------------------------------------
-    * 地图的使用
-    * */
-
-    //声明AMapLocationClient类对象
-    public AMapLocationClient mLocationClient  = null;
-
-
-
-     /*
-    * ------------------------------------------------------------------------------------------
-    * */
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -136,7 +116,9 @@ public class HomeFragment extends BaseFragment {
             } else {
                 bgColor = (int) evaluator.evaluate(sumY / duration, 0X553190E8, 0XFF3190E8);
             }
+
             llTitleContainer.setBackgroundColor(bgColor);
+
         }
     };
 
@@ -158,8 +140,7 @@ public class HomeFragment extends BaseFragment {
 
     @OnClick(R.id.home_tv_address)
     public void onClick() {
-        Intent intent  = new Intent(MyApplication.getContext(),MapActivity.class);
-        startActivity(intent);
+
     }
     public MyAdapter getMAdapter(){
         return  mMAdapter;

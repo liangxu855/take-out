@@ -9,7 +9,6 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-
 import com.hasee.bh_takeout.R;
 import com.hasee.bh_takeout.ui.fragment.HomeFragment;
 import com.hasee.bh_takeout.ui.fragment.MoreFragment;

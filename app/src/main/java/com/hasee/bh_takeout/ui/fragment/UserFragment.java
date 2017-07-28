@@ -14,10 +14,8 @@ import android.widget.TextView;
 
 import com.hasee.bh_takeout.AddressManage.ui.ReceiptAddressActivity;
 import com.hasee.bh_takeout.R;
-import com.hasee.bh_takeout.bean.User;
 import com.hasee.bh_takeout.model.dao.bean.UserBean;
 import com.hasee.bh_takeout.ui.activity.LoginActivity;
-import com.hasee.bh_takeout.utils.UiUtils;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
