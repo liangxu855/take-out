@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.hasee.bh_takeout">
+<<<<<<< HEAD
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+=======
     <!--用于进行网络定位-->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
     <!--用于访问GPS定位-->
@@ -22,6 +34,7 @@
     <!--用于申请获取蓝牙信息进行室内定位-->
     <uses-permission android:name="android.permission.BLUETOOTH"></uses-permission>
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"></uses-permission>
+>>>>>>> e9e42c2816595001115d142292e5dc545ab8b9dd
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -45,9 +58,20 @@
         <activity android:name=".AddressManage.ui.ReceiptAddressActivity"/>
         <activity android:name=".AddressManage.ui.SelectLocationActivity"/>
         <activity android:name=".AddressManage.ui.NewAddressActivity"/>
+<<<<<<< HEAD
+        <activity
+            android:name="com.mob.tools.MobUIShell"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:windowSoftInputMode="stateHidden|adjustResize"/>
+        <!-- 通过AndroidManifest配置AppKey和AppSecret，如果你选择通过代码配置，则不需要配置以下meta-data -->
+        <meta-data android:name="Mob-AppKey" android:value="1fc3e88ef6cfa"/>
+        <meta-data android:name="Mob-AppSecret" android:value="cca9ff07ba32579e146994e27bb6a21a"/>
+=======
         <meta-data android:name="com.amap.api.v2.apikey" android:value="d41d442e567f524dc25bf73d147abceb">//开发者申请的key
 
         </meta-data>
+>>>>>>> e9e42c2816595001115d142292e5dc545ab8b9dd
     </application>
 
 </manifest>
