@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.PagerAdapter;
 import android.support.v7.widget.RecyclerView;
@@ -28,6 +29,7 @@ import com.hasee.bh_takeout.bean.HomeInfo;
 import com.hasee.bh_takeout.bean.HomeItem;
 import com.hasee.bh_takeout.bean.Promotion;
 import com.hasee.bh_takeout.presenter.fragment.HomeFragmentPresenter;
+import com.hasee.bh_takeout.ui.activity.SellerInfoActivity;
 import com.hasee.bh_takeout.ui.fragment.HomeFragment;
 import com.hasee.bh_takeout.utils.UiUtils;
 import com.squareup.picasso.Picasso;
@@ -144,11 +146,29 @@ public void setData(HomeInfo data){
         setListener(sellerHolder,homeItem,position);
     }
 
-    private void setListener(SellerHolder sellerHolder, HomeItem homeItem, final int position) {
+    private void setListener(SellerHolder sellerHolder, final HomeItem homeItem, final int position) {
         sellerHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(MyApplication.getContext(),"点击的第"+position+"个条目",Toast.LENGTH_SHORT).show();
+                Intent  intent  = new Intent(MyApplication.getContext(),SellerInfoActivity.class);
+                /*
+				因为正常情况下是在Activity中实现跳转操作的，
+				而activity要存在于activity的栈中，
+				此时已经有activity栈了，
+				直接入栈就行了。
+				但是在非Activity中实现​跳转功能时，
+				由于没有activity栈，
+				所以要新起一个栈装入启动的activity，
+				这就是intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)的作用。
+				*/
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                //使用Bundle来传递数据
+                Bundle bundle = new Bundle();
+                bundle.putLong("sellerId",homeItem.seller.getId());
+                bundle.putString("sellerName",homeItem.seller.getName());
+                intent.putExtras(bundle);
+                MyApplication.getContext().startActivity(intent);
             }
         });
     }
