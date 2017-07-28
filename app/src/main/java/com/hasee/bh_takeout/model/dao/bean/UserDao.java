@@ -9,6 +9,7 @@ import com.hasee.bh_takeout.model.dao.DBHelper;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.stmt.DeleteBuilder;
 
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -62,7 +63,6 @@ public class UserDao {
         }
         return null;
     }
-
     /**
      * 根据对象删除某条数据
      */
